@@ -123,7 +123,7 @@ html, body{
 .search-result a.thumbnail {border:0px solid #fff;}
 .search-result-section {
 	background-color: #ccc;
-    padding-bottom: 60px;
+    margin-bottom: 70px;
 	}
 .search-result { background-color: #fff;}
 .search-result { 
@@ -135,8 +135,7 @@ html, body{
 	
 .search-result span.view { position: absolute; top: 70px }
 .search-result span.view a { 
-	background-color: #248dc1; 
     display: block;
 	}
-.search-result span.view a:hover { background-color: #414141; }
-.search-result span.view a i { color: #fff !important; }
+.search-result span.view a:hover {color: #414141 !important; }
+.search-result span.view a i { color: #248dc1 !important; }
