@@ -1,0 +1,29 @@
+{
+  "name": "tab",
+  "version": "1.0.0",
+  "description": "The Advisor Board",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cyu521/TAB.git"
+  },
+  "keywords": [
+    "advisor",
+    "professors",
+    "education"
+  ],
+  "author": "De Yu (Chong)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cyu521/TAB/issues"
+  },
+  "homepage": "https://github.com/cyu521/TAB#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "mongod": "^1.3.0",
+    "socket.io": "^1.5.1"
+  }
+}
