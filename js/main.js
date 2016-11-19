@@ -15,7 +15,7 @@ var tabApp = angular.module("tabApp",  ['ngRoute']).config(function ($routeProvi
     });
 });
 tabApp.service('Result', function($rootScope) {
-	var result = {};
+	var result = null;
 
 	return {
 		getResult: function () {

@@ -1,41 +1,40 @@
 
-    <section class="col-xs-12 top-menu-bar" id="top-bar">
-        <div class="center">
-			<!-- make this into an image -->
-            <h2 class="col-xs-3 col-sm-2 col-sm-offset-1"><a href="/">TAB</a></h2>
-            <div class="form-group col-xs-8 col-sm-9">
-                <div class="icon-addon addon-lg">
-                   
-					<form ng-submit="searchQuery()" ng-controller="searchSection">
-     
-						 <input type="text" 
-						placeholder="Search Professors, Schools, or topics..." 
-						class="form-control" 
-						id="searchBox"
-						ng-model="query"/>
-						<span ng-click="searchQuery()" for="searchBox" class="fa fa-search" title="Search"></span>
-					</form>
-                </div>
-            </div>
+<div ng-controller="ProfileController">
+	<ng-include src="'views/search.html'"></ng-include>
 
-        </div>
-    </section>
-
-    <section class="col-xs-offset-1 col-xs-11 result-section">
-	
-	<!--loop-->
-        <div class="profile-result" href='#'>
+    <section class="col-xs-offset-1 col-xs-11 col-lg-offset-2 col-lg-9  result-section" ng-value="professor">
+	        <div class="profile-result">
             <div class="profile-left col-xs-6 col-sm-3">
-                <a href="#" title="name" class="thumbnail"><img src="/images/prof.png" alt="name" /></a>
-				<a href="mailto:dy87@drexel.edu">
+                <span title="name" class="thumbnail"><img src="/images/prof.png" alt="name" /></span>
+				<!-- <a href="mailto:dy87@drexel.edu">
 					<button type="button" class="btn btn-primary">Contact</button>
-				</a>
+				</a> -->
             </div>
             <div class="col-xs-5 col-sm-8">
-                <h3><a href="#" title="">First Last</a></h3>
-                <p>Description</p>
+                 <h3><b>{{professor.name}}</b></h3>
+                <p>
+				Topics: {{professor.subField}}
+				<br>
+				University: {{professor.university}}
+				<br>
+				Bachelors : {{professor.bachelors}}
+				<br>
+				Masters : {{professor.masters}}
+				<br>
+				Doctorate: {{professor.doctor}}
+				<br>
+				Join Year: {{professor.joinYear}}
+				<br>
+				Sources:
+				<br>
+				<a href="{{source}}" ng-repeat="source in professor.sources">
+				{{source}}
+				<br>
+				</a>
+				</p>
             </div>
             <span class="clearfix borda"></span>
         </div>
 
     </section>
+</div>

@@ -12,6 +12,8 @@ const io = require('socket.io').listen(server);
 var MongoClient = require('mongodb').MongoClient,
     assert = require('assert');
 
+var ObjectId = require('mongodb').ObjectID;
+
 // Connection URL
 var url = 'mongodb://127.0.0.1:27017/tab';
 var db;
@@ -49,11 +51,23 @@ app.get('/', function (req, res) {
 app.post('/getResult', function (req, res) {
 	var query = req.body.query;
 	var collection = db.collection("professors");
-	collection.find({ Name:  query  }).toArray(function(err, documents) {
+	var findScript = { $or: [ { Name:  new RegExp(query)}, { University:  new RegExp(query)}, { Subfield:  new RegExp(query)} ] };
+	collection.find(findScript).toArray(function(err, documents) {
 		
 		res.json(documents)
   });
 });
+
+
+app.post('/getProfessorById', function (req, res) {
+	var id = req.body.id;
+	var collection = db.collection("professors");
+	collection.findOne(ObjectId(id), function(err, professor){
+		
+		res.json(professor)
+	});
+});
+
 
 
 // app.get('/profile', function (req, res) {

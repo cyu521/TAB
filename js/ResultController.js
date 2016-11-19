@@ -1,13 +1,14 @@
 angular.module('tabApp')
-    .controller('ResultController', function ($scope, $location, $http, Result) {
+    .controller('ResultController', function ($scope, $location, $http, Result, $rootScope) {
 	//init get the url param
 	var param = $location.search().param;
 	//call search query
 	getSearchResult(param);
-
+	$rootScope.query = param;
+	$scope.professors = new Array();
 	//search query through database
 	function getSearchResult(query){
-		$scope.query = query;
+		Result.setResult(query);
 		if(query != undefined){
 			$http({
 				method: 'POST',
@@ -20,7 +21,7 @@ angular.module('tabApp')
 
 			});
 				
-			}
+		}
 	}
 	//read the results
 	function readResult(response) {
@@ -28,15 +29,18 @@ angular.module('tabApp')
 		if(professors != null){
 			for (var i=0; i<professors.length; i++) {
 			  var professor = professors[i];
-			  $scope.name = professor.Name;
-			  $scope.subField = professor.Subfield;
-			  $scope.university = professor.University;
+			  var tempProfessor = new Object();
+			  tempProfessor.id = professor._id;
+			  tempProfessor.name = professor.Name;
+			  tempProfessor.subField = professor.Subfield;
+			  tempProfessor.university = professor.University;
+			  $scope.professors[i] = tempProfessor;
 			}
 		}
 	}
 	//search query
 	$scope.searchQuery = function(){	
-		query = $scope.query;	
+		query = $rootScope.query;	
 		$location.search({param: query});;
 		getSearchResult(query);
 		};
