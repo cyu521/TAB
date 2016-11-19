@@ -7,7 +7,7 @@ angular.module('tabApp')
 	$rootScope.query = param;
 	$scope.professors = new Array();
 	
-	
+	$rootScope.Title = "The Advisor Board"
 	//search query through database
 	function getSearchResult(query){
 		$scope.delay = true;

@@ -14,6 +14,7 @@ var tabApp = angular.module("tabApp",  ['ngRoute']).config(function ($routeProvi
 		controller: 'ProfileController'
     });
 });
+
 tabApp.service('Result', function($rootScope) {
 	var result = null;
 

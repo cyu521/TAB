@@ -5,7 +5,7 @@ angular.module('tabApp')
 		
 	//get profile info
 	getProfileInfo(param);
-	
+	$rootScope.Title = "The Advisor Board"
 	//search id through database
 	function getProfileInfo(id){
 		if(id != undefined){
@@ -27,12 +27,11 @@ angular.module('tabApp')
 	//read the results
 	function readResult(response) {
 		var professor = response.data;
-		console.log(response)
 		if(professor != null){
 		  var tempProfessor = new Object();
-		  console.log(professor)
 		  tempProfessor.id = professor._id;
 		  tempProfessor.name = professor.Name;
+		  $rootScope.Title = professor.Name;
 		  tempProfessor.subField = professor.Subfield;
 		  tempProfessor.university = professor.University;
 		  tempProfessor.bachelors = professor.Bachelors;
