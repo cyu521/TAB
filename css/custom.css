@@ -122,7 +122,9 @@ html, body{
   margin-bottom: 20px;
   text-align: center;
 }
-.search-result a.thumbnail {border:0px solid #fff;}
+.search-result .thumbnail {border:0px solid #fff;}
+
+
 .result-section {
 	background-color: #ccc;
     margin-bottom: 70px;
@@ -143,7 +145,7 @@ html, body{
 .search-result span.view a i { color: #248dc1 !important; }
 
 
-.profile-result a.thumbnail {border:0px solid #fff;}
+.profile-result .thumbnail {border:0px solid #fff;}
 .profile-result { background-color: #fff;}
 .profile-result { 
 	margin-top: 20px; 
