@@ -49,11 +49,28 @@ app.get('/', function (req, res) {
 });
 
 app.post('/getResult', function (req, res) {
-	var query = req.body.query;
+	var querys = req.body.query;
 	var collection = db.collection("info");
-	var findScript = { $or: [ { Name:  new RegExp(query, "i")}, { University:  new RegExp(query, "i")}, { Subfield:  new RegExp(query, "i")} ] };
+	var partsOfStr = querys.split(',');
+	var andArray = new Array();
+	for (var i =0; i<partsOfStr.length; i++){
+		var query = partsOfStr[i];
+		//making sure query is not null or empty
+		if(query != null && query.trim() != ""){
+			
+			var orArray = new Array();
+			//look if query matches name, university, or subfield (topics)
+			orArray.push({ Name:  new RegExp(query.trim(), "i")});
+			orArray.push({ University:  new RegExp(query.trim(), "i")});
+			orArray.push({ Subfield:  new RegExp(query.trim(), "i")});
+			//adding results of this term to andArray
+			andArray.push({$or: orArray});
+		}
+	}
+	//find multiple terms that are related using andArray
+	var findScript = { $and: andArray };
 	collection.find(findScript).toArray(function(err, documents) {
-		
+		//return info
 		res.json(documents)
   });
 });
@@ -63,17 +80,9 @@ app.post('/getProfessorById', function (req, res) {
 	var id = req.body.id;
 	var collection = db.collection("info");
 	collection.findOne(ObjectId(id), function(err, professor){
-		
 		res.json(professor)
 	});
 });
-
-
-
-// app.get('/profile', function (req, res) {
-    // res.sendFile(__dirname + '/html/profile.html')
-// });
-
 
 
 server.listen(port || process.env.PORT, function () {
