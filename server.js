@@ -15,7 +15,7 @@ var MongoClient = require('mongodb').MongoClient,
 var ObjectId = require('mongodb').ObjectID;
 
 // Connection URL
-var url = 'mongodb://127.0.0.1:27017/tab';
+var url = 'mongodb://104.236.230.217:27017/profs';
 var db;
 
 // Use connect method to connect to the server
@@ -50,7 +50,7 @@ app.get('/', function (req, res) {
 
 app.post('/getResult', function (req, res) {
 	var query = req.body.query;
-	var collection = db.collection("professors");
+	var collection = db.collection("info");
 	var findScript = { $or: [ { Name:  new RegExp(query, "i")}, { University:  new RegExp(query, "i")}, { Subfield:  new RegExp(query, "i")} ] };
 	collection.find(findScript).toArray(function(err, documents) {
 		
@@ -61,7 +61,7 @@ app.post('/getResult', function (req, res) {
 
 app.post('/getProfessorById', function (req, res) {
 	var id = req.body.id;
-	var collection = db.collection("professors");
+	var collection = db.collection("info");
 	collection.findOne(ObjectId(id), function(err, professor){
 		
 		res.json(professor)

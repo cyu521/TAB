@@ -6,7 +6,7 @@
 	<div ng-show="delay" class="loader col-xs-offset-5"></div>
 	<!-- no result -->
 		<div class="search-result" ng-show="!professors.length && !delay">
-			Sorry, no match found for <b>{{$root.query}}</b>. Please try again.
+			Sorry, no match found. Please try again.
 		</div>
 	<!--loop-->
         <div class="search-result" ng-repeat="professor in professors">

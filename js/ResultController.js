@@ -1,5 +1,5 @@
 angular.module('tabApp')
-    .controller('ResultController', function ($scope, $location, $http, Result, $rootScope) {
+    .controller('ResultController', function ($scope, $location, $http, $rootScope) {
 	//init get the url param
 	var param = $location.search().param;
 	//call search query
@@ -10,7 +10,6 @@ angular.module('tabApp')
 	
 	//search query through database
 	function getSearchResult(query){
-		Result.setResult(query);
 		$scope.delay = true;
 		if(query != undefined){
 			$http({
@@ -43,10 +42,15 @@ angular.module('tabApp')
 		}
 	}
 	//search query
-	$scope.searchQuery = function(){	
+	$scope.searchQuery = function(){
+		$scope.changeQuery();
+		$location.search({param: query});
+		};
+	
+	//search query
+	$scope.changeQuery = function(){
 		query = $rootScope.query;	
-		$location.search({param: query});;
-		getSearchResult(query);
+		getSearchResult(query);		
 		};
 
 });
