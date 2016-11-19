@@ -6,9 +6,12 @@ angular.module('tabApp')
 	getSearchResult(param);
 	$rootScope.query = param;
 	$scope.professors = new Array();
+	
+	
 	//search query through database
 	function getSearchResult(query){
 		Result.setResult(query);
+		$scope.delay = true;
 		if(query != undefined){
 			$http({
 				method: 'POST',
@@ -17,6 +20,7 @@ angular.module('tabApp')
 			}).then(function successCallback(response) {
 				//success, set the results
 				readResult(response);
+				$scope.delay = false;
 			}, function errorCallback(response) {
 
 			});

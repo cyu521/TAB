@@ -51,7 +51,7 @@ app.get('/', function (req, res) {
 app.post('/getResult', function (req, res) {
 	var query = req.body.query;
 	var collection = db.collection("professors");
-	var findScript = { $or: [ { Name:  new RegExp(query)}, { University:  new RegExp(query)}, { Subfield:  new RegExp(query)} ] };
+	var findScript = { $or: [ { Name:  new RegExp(query, "i")}, { University:  new RegExp(query, "i")}, { Subfield:  new RegExp(query, "i")} ] };
 	collection.find(findScript).toArray(function(err, documents) {
 		
 		res.json(documents)
