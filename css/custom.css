@@ -28,6 +28,8 @@
 .icon-addon .glyphicon, 
 .icon-addon.addon-md .fa,
 .icon-addon .fa {
+	
+	cursor: pointer;
     position: absolute;
     z-index: 2;
     left: 10px;

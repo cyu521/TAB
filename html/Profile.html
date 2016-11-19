@@ -1,26 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>The Advisor Board</title>
-
-    <!-- core CSS -->
-    <link href="/styles/bootstrap.min.css" rel="stylesheet">
-    <link href="/styles/font-awesome.min.css" rel="stylesheet">
-    <link href="/styles/custom.css" rel="stylesheet">
-
-	<!-- JS -->
-    <script src="/js/jquery-3.1.1.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-
-</head>
-<!--/head-->
-
-<body class="homepage">
 
     <section class="col-xs-12 top-menu-bar" id="top-bar">
         <div class="center">
@@ -28,8 +5,16 @@
             <h2 class="col-xs-3 col-sm-2 col-sm-offset-1"><a href="/">TAB</a></h2>
             <div class="form-group col-xs-8 col-sm-9">
                 <div class="icon-addon addon-lg">
-                    <input type="text" placeholder="Search Professors, Schools, or topics..." class="form-control" id="searchBox">
-                    <label for="searchBox" class="fa fa-search" rel="tooltip" title="Search"></label>
+                   
+					<form ng-submit="searchQuery()" ng-controller="searchSection">
+     
+						 <input type="text" 
+						placeholder="Search Professors, Schools, or topics..." 
+						class="form-control" 
+						id="searchBox"
+						ng-model="query"/>
+						<span ng-click="searchQuery()" for="searchBox" class="fa fa-search" title="Search"></span>
+					</form>
                 </div>
             </div>
 
@@ -54,19 +39,3 @@
         </div>
 
     </section>
-
-    <footer class="navbar-footer navbar-bottom navbar-fixed-bottom">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-6">
-                    &copy; 2016 Drexel University. All Rights Reserved.
-                </div>
-                <div class="col-xs-6" style="text-align:right">Contact: <a href="Mailto:dy87@drexel.edu">De Yu dy87@drexel.edu</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-</body>
-
-</html>

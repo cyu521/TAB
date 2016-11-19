@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="tabApp">
 
 <head>
     <meta charset="utf-8">
@@ -16,27 +16,20 @@
 	<!-- JS -->
     <script src="/js/jquery-3.1.1.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/angular.min.js"></script>
+	<script src="/js/angular-route.js"></script>
+	<script src="/js/angular-location-decorator.js"></script>
+	
+    <script src="/js/main.js"></script>
+    <script src="/js/HomeController.js"></script>
+    <script src="/js/ResultController.js"></script>
 </head>
 <!--/head-->
 
 <body class="homepage">
 
-    <div class="center container-fluid">
-
-        <div class="row-fluid">
-            <div class="centering text-center">
-                <h2 class="col-xs-11 col-sm-6 col-md-5  col-xs-offset-1 col-lg-offset-2 col-lg-8">The Advisor Board</h2>
-                <div class="form-group col-xs-11 col-sm-5 col-md-6 col-lg-offset-3">
-                    <div class="icon-addon addon-lg">
-                        <input type="text" placeholder="Search Professors, Schools, or topics..." class="form-control" id="searchBox">
-                        <label for="searchBox" class="fa fa-search" rel="tooltip" title="Search"></label>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
+	<ng-view></ng-view>
+	
    <footer class="navbar-footer navbar-bottom navbar-fixed-bottom">
         <div class="container">
             <div class="row">

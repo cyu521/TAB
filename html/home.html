@@ -1,0 +1,24 @@
+
+    <div class="center container-fluid" ng-controller="HomeController">
+
+		<div class="row-fluid">
+            <div class="centering text-center">
+                <h2 class="col-xs-11 col-sm-6 col-md-5  col-xs-offset-1 col-lg-offset-2 col-lg-8">The Advisor Board</h2>
+                <div class="form-group col-xs-11 col-sm-5 col-md-6 col-lg-offset-3">
+                   <div class="icon-addon addon-lg">
+				   
+					<form ng-submit="searchQuery()">
+     
+						 <input type="text" 
+						placeholder="Search Professors, Schools, or topics..." 
+						class="form-control" 
+						id="searchBox"
+						ng-model="query"/>
+						<span ng-click="searchQuery()" for="searchBox" class="fa fa-search" title="Search"></span>
+					</form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>

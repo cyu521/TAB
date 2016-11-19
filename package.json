@@ -22,6 +22,10 @@
   },
   "homepage": "https://github.com/cyu521/TAB#readme",
   "dependencies": {
+    "angular": "^1.5.8",
+    "angular-location-decorator": "^1.0.1",
+    "angular-route": "^1.5.8",
+    "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "mongod": "^1.3.0",
     "socket.io": "^1.5.1"
