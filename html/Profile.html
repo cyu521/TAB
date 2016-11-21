@@ -5,13 +5,13 @@
     <section class="col-xs-offset-1 col-xs-11 col-lg-offset-2 col-lg-9  result-section" ng-value="professor">
 	        <div class="profile-result">
             <div class="profile-left col-xs-6 col-sm-3">
-                <span title="name" class="thumbnail"><img src="/images/prof.png" alt="name" /></span>
+                <span title="{{professor.name}}" class="thumbnail"><img src="/images/prof.png" alt="name" /></span>
 				<!-- <a href="mailto:dy87@drexel.edu">
 					<button type="button" class="btn btn-primary">Contact</button>
 				</a> -->
             </div>
             <div class="col-xs-5 col-sm-8">
-                 <h3><b>{{professor.name}}</b></h3>
+                 <h3 title="{{professor.name}}"><b>{{professor.name}}</b></h3>
                 <p>
 				Topics: {{professor.subField}}
 				<br>

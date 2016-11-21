@@ -11,10 +11,10 @@
 	<!--loop-->
         <div class="search-result" ng-repeat="professor in professors">
             <div class="col-xs-6 col-sm-3">
-                <a ng-href="/#/profile?param={{professor.id}}" title="name" class="thumbnail"><img src="/images/prof.png" alt="name" /></a>
+                <a ng-href="/#/profile?param={{professor.id}}" title="{{professor.name}}" class="thumbnail"><img src="/images/prof.png" alt="name" /></a>
             </div>
             <div class="col-xs-4 col-sm-7">
-                <h3><a ng-href="/#/profile?param={{professor.id}}" title="" ng-value="name">{{professor.name}}</a></h3>
+                <h3><a ng-href="/#/profile?param={{professor.id}}" title="{{professor.name}}" ng-value="name">{{professor.name}}</a></h3>
                 <p>
 				Topics: {{professor.subField}}
 				<br>
