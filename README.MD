@@ -22,5 +22,10 @@ node server.js
 ```
 The site will be up at http://localhost:521/
 
+#Goal
+To create a platform for potiential grad students to find an advisor for their grad degree
 
+Used MongoDB as database
+NodeJS as server
+Angular, HTML, CSS, JS for FrontEnd
 
