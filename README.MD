@@ -5,7 +5,7 @@
 npm install
 ```
 
-# Node
+# NodeJS
 Install NodeJS from https://nodejs.org/en/download/
 
 # Installation
